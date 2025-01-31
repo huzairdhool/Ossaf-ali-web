@@ -44,19 +44,19 @@ export const assets = {
 
 export const projectsData = [
     {
-      title: "Skyline Haven",
+      title: "single story House",
       price: "Rs:2,50,000",
       location: "Gujrat",
       image: project_img_1
     },
     {
-      title: "Vista Verde",
+      title: "5 Kanal's House",
       price: "Rs:2,50,000",
       location: "Gujrat",
       image: project_img_2
     },
     {
-      title: "Serenity Suites",
+      title: "Double story luxury",
       price: "Rs:2,50,000",
       location: "Gujrat",
       image: project_img_3
@@ -68,13 +68,13 @@ export const projectsData = [
       image: project_img_4
     },
     {
-      title: "Vista Verde",
+      title: "Beach House",
       price: "Rs:2,50,000",
       location: "Gujrat",
       image: project_img_5
     },
     {
-      title: "Serenity Suites",
+      title: "Farm House",
       price: "Rs:2,50,000",
       location: "Gujrat",
       image: project_img_6
