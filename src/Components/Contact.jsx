@@ -1,7 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { assets } from '../assets/assets';
 
+
 const Contact = () => {
+  const [status, setStatus] = useState(null);
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "aed7d26c-c179-480f-afb7-fc9138d8c7e0");
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: json
+    }).then((res) => res.json());
+
+    if (res.success) {
+      setStatus({ type: "success", message: "Message sent successfully!" });
+      event.target.reset(); // Reset form
+    } else {
+      setStatus({ type: "error", message: "Something went wrong. Try again." });
+    }
+  };
+
+
   return (
     <div className="bg-gray-100 py-15" id='Contact'>
       <div className="container mx-auto px-4">
@@ -31,21 +61,21 @@ const Contact = () => {
               </div>
             </div>
             <div>
-              <form>
+              <form onSubmit={onSubmit}>
                 <div className="mb-4">
                   <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Name</label>
-                  <input type="text" id="name" className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 
+                  <input type="text" id="name" name='name' className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 
                   focus:ring-blue-500" required placeholder="Your Name" />
                 </div>
                 <div className="mb-4">
                   <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email</label>
-                  <input type="email" id="email" className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 
+                  <input type="email" id="email" name='mail' className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 
                   focus:ring-blue-500" required placeholder="Your Email" />
                 </div>
                 <div className="mb-6">
                   <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Message</label>
-                  <textarea id="message" rows="4" className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 
-                  focus:ring-blue-500" rquired placeholder="Your Message"></textarea>
+                  <textarea id="message" name='message' rows="4" className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 
+                  focus:ring-blue-500" required placeholder="Your Message"></textarea>
                 </div>
                 <div className="text-center">
                   <button type="submit" className="bg-blue-500 hover:scale-transition-200 hover:cursor-pointer hover:font-medium transition-all duration-100 
@@ -54,6 +84,10 @@ const Contact = () => {
                   </button>
                 </div>
               </form>
+
+              {status && (
+                <div className={`mt-4 text-center p-3 rounded-md ${status.type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                  {status.message}</div>)}
             </div>
           </div>
         </div>
