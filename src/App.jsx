@@ -4,6 +4,7 @@ import Footer from './Components/Footer'
 import About from './Components/About'
 import Contact from './Components/Contact'
 import Property from './Components/Property'
+// import Types from './Components/Types'
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <>
       <Header/>
       <About/>
+      {/* <Types/> */}
       <Property/>
       <Contact/>
       <Footer/>

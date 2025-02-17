@@ -5,7 +5,8 @@ const About = () => {
   return (
     <div className='flex flex-col items-center justify-center container mx-auto p-14
     md:px-20 lg:px-32 w-full overflow-hidden' id='About'>
-      <h2 className='text-2xl md:text-4xl mb-2 font-bold text-blue-500'>Welcome to <span className='decoration-1 font-light'>Ossaf Ali Property Center</span></h2>
+      <h2 className='text-2xl md:text-4xl mb-2 font-bold text-blue-500 '>
+        Welcome to <span className='decoration-1 font-light'>Ossaf Ali Property Center</span></h2>
       <p className='text-black max-w-80 text-center mb-8 mt-2'>" Your Trusted Partner in Property Solutions –
        Buy, Sell, and Invest with Confidence. "</p>
        
