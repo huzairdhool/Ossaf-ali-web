@@ -1,4 +1,3 @@
-import logo from './logo.png'
 import logo_dark from './logo_dark.svg'
 import loc_icon from './loc_icon.png'
 import mail from './mail.png'
